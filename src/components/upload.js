@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState, useRef } from "react";
 import { Web3Storage } from 'web3.storage';
 import Navigation from "../components/navigation";
@@ -13,7 +14,7 @@ function Storefile ()
         console.log(document.getElementById("input").files[0]);
         
     }
-    async function handleupload()
+    async function handleupload(cid)
     {
         var fileInput = document.getElementById("input");
         const rootCid = await client.put(fileInput.files, {
@@ -27,7 +28,26 @@ function Storefile ()
         const url = URL.createObjectURL(files[0]);
         console.log(url);
         setFile(url);
+
+        
+            const client = makeStorageClient()
+            console.log(`Got a response! [${res.status}] ${res.statusText}`)
+            if (!res.ok) {
+              throw new Error(`failed to get ${cid}`)
+            
+          
+            // request succeeded! do something with the response object here...
+          }
     }
+    function getAccessToken () {
+       
+        return process.env.WEB3STORAGE_TOKEN
+      }
+    function makeStorageClient () {
+        return new Web3Storage({ token:API_TOKEN  })
+      }
+    
+      
     return(
         <>
         <Navigation />
@@ -37,9 +57,23 @@ function Storefile ()
                 </input> 
             </div>
             <div>
-                <button onClick={handleupload}>Upload File</button>
+                <button onClick={()=>{handleupload()}}>Upload File</button>
             </div>
         </>
     )
 }
 export default Storefile
+
+
+
+
+// tableland create "id int primary key, name text" "quickstart" --chain=polygon-mumbai --privateKey "your_private_key_"
+
+// # Write to the table by INSERTing a value
+// # Note: every table `name` is unique, so replace `quickstart_5_74` with your
+// tableland write "INSERT INTO quickstart_5_74 VALUES (0, 'Bobby Tables')" --chain=polygon-mumbai --privateKey "your_private_key_" --token "siwe_token"
+
+// # Read from the table
+// # Note: replace the table name with yours
+// # Although, anyone can *read* from *any* table, so this statement is valid for anyone
+// tableland read "SELECT * FROM quickstart_5_74;" --chain=polygon-mumbai 

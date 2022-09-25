@@ -13,6 +13,8 @@ import Member from './components/Member';
 import Upload from './components/upload';
 import Navigation from './components/navigation';
 import JsonData from "./data/data.json";
+import { Intercom, Window, Launcher } from '@relaycc/receiver';
+
 function App() {
   const [landingPageData, setLandingPageData] = useState({});
   useEffect(() => {
@@ -42,6 +44,10 @@ function App() {
     
               </Routes>
          </BrowserRouter>
+          <Launcher  />
+              <Intercom>
+                <Window />
+              </Intercom>
       </div>
 
    

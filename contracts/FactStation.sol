@@ -3,7 +3,7 @@
 pragma solidity ^0.8.7;
 
 /// @title Smart Contract for Fact Station DAO. (Apr 8, 2022)
-/// @author Manav Vagdoda (vagdonic.github.io)
+/// @author Prasanna Patel (Pjpatel1.github.io)
 
 import "./FSToken.sol";
 
