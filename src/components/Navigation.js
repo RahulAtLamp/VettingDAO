@@ -39,8 +39,8 @@ function Navigation() {
   useEffect(() => {
     setAddress(cookie.get('UDaddress'))
     const uauth = new UAuth({
-      clientID: '4d534cc7-eae0-4116-9171-c5429dd07028',
-      redirectUri: 'http://localhost:3000',
+      clientID: 'bd2301cb-a27b-4bc1-bfea-cf0bf6042ce7',
+      redirectUri: 'https://vetting-dao-mu.vercel.app/',
       scope: 'openid wallet'
     })
     setAuthorization(uauth);
