@@ -28,6 +28,7 @@ function Navigation() {
       path: "/",
       maxAge: 5000,
     });
+    window.location.reload();
   };
 
   const logout = async () => {
