@@ -1,4 +1,4 @@
-import UAuth from '@uauth/js'
+  import UAuth from '@uauth/js'
 import React, {useEffect, useState} from 'react'
 
 
